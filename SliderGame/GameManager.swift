@@ -10,15 +10,8 @@ import Combine
 
 final class GameManager: ObservableObject {
     
-    let objectWillChange = PassthroughSubject<GameManager, Never>()
-    
-    @Published var targetValue: Int {
-        willSet { objectWillChange.send(self) }
-    }
-    
-    @Published var sliderValue: Float = 50 {
-        willSet { objectWillChange.send(self) }
-    }
+    @Published var targetValue: Int
+    @Published var sliderValue: Float = 50
     
     var alphaForSlider: CGFloat {
         CGFloat(computeScore()) / 100
